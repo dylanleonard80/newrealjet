@@ -105,7 +105,7 @@ const ImageBreakSection = () => {
           <div className="flex items-center justify-center gap-4 md:gap-8">
             {/* Previous Jet (faded) */}
             <div
-              className={`hidden md:block w-48 lg:w-64 transition-all duration-500 ease-out ${
+              className={`hidden md:block w-48 lg:w-64 aspect-[4/3] transition-all duration-500 ease-out ${
                 isAnimating
                   ? slideDirection === 'right'
                     ? 'opacity-0 -translate-x-8'
@@ -116,13 +116,13 @@ const ImageBreakSection = () => {
               <img
                 src={jetImages[prevIndex]}
                 alt={fleetCategories[prevIndex].category}
-                className="w-full h-auto object-contain grayscale"
+                className="w-full h-full object-cover grayscale"
               />
             </div>
 
             {/* Current Jet */}
             <div
-              className={`w-72 md:w-96 lg:w-[450px] transition-all duration-500 ease-out ${
+              className={`w-72 md:w-96 lg:w-[450px] aspect-[4/3] transition-all duration-500 ease-out ${
                 isAnimating
                   ? 'opacity-0 scale-95'
                   : 'opacity-100 scale-100'
@@ -131,13 +131,13 @@ const ImageBreakSection = () => {
               <img
                 src={jetImages[currentIndex]}
                 alt={currentJet.category}
-                className="w-full h-auto object-contain"
+                className="w-full h-full object-cover"
               />
             </div>
 
             {/* Next Jet (faded) */}
             <div
-              className={`hidden md:block w-48 lg:w-64 transition-all duration-500 ease-out ${
+              className={`hidden md:block w-48 lg:w-64 aspect-[4/3] transition-all duration-500 ease-out ${
                 isAnimating
                   ? slideDirection === 'left'
                     ? 'opacity-0 translate-x-8'
@@ -148,7 +148,7 @@ const ImageBreakSection = () => {
               <img
                 src={jetImages[nextIndex]}
                 alt={fleetCategories[nextIndex].category}
-                className="w-full h-auto object-contain grayscale"
+                className="w-full h-full object-cover grayscale"
               />
             </div>
           </div>

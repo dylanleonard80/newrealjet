@@ -14,8 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        serif: ['Cormorant', 'Georgia', 'serif'],
-        sans: ['Outfit', 'system-ui', 'sans-serif'],
+        serif: ['Campton', 'Georgia', 'serif'],
+        sans: ['Campton', 'system-ui', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
