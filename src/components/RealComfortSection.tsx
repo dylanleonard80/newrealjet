@@ -49,7 +49,7 @@ const RealComfortSection = () => {
           <div className="max-w-2xl">
             {/* Headline */}
             <h2
-              className={`text-4xl md:text-5xl lg:text-6xl font-light text-white tracking-[0.2em] uppercase transition-all duration-1000 ${
+              className={`text-2xl md:text-3xl lg:text-4xl font-light text-white tracking-[0.3em] uppercase transition-all duration-1000 ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
             >
@@ -69,7 +69,7 @@ const RealComfortSection = () => {
 
             {/* Explore Button */}
             <a
-              href="/fleet"
+              href="/safety"
               className={`inline-block mt-8 px-12 py-4 border border-white/50 text-white text-xs tracking-[0.2em] uppercase hover:bg-white/10 transition-all duration-300 ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}

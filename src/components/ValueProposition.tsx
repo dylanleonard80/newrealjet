@@ -139,10 +139,10 @@ const ValueProposition = () => {
           style={{ transitionDelay: '800ms' }}
         >
           <a
-            href="/about"
+            href="/leadership"
             className="inline-block px-10 py-4 border border-white/30 text-white text-xs tracking-[0.2em] uppercase hover:bg-white/10 transition-all duration-300"
           >
-            Learn More About Real Jet
+            Meet Our Leadership
           </a>
         </div>
       </div>

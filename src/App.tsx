@@ -7,8 +7,6 @@ import BookingBar from "./components/BookingBar";
 import Index from "./pages/Index";
 import Leadership from "./pages/Leadership";
 import Safety from "./pages/Safety";
-import About from "./pages/About";
-import Fleet from "./pages/Fleet";
 import Blog from "./pages/Blog";
 import NotFound from "./pages/NotFound";
 
@@ -25,8 +23,6 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/leadership" element={<Leadership />} />
           <Route path="/safety" element={<Safety />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/fleet" element={<Fleet />} />
           <Route path="/blog" element={<Blog />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

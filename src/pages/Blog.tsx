@@ -86,7 +86,7 @@ const Blog = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-[#E7E7E7]">
       <Header />
       <PageHero
         eyebrow="Resources"

@@ -26,7 +26,7 @@ const SafetySection = () => {
         {/* Three Column Grid */}
         <div className="grid md:grid-cols-3 gap-8 md:gap-12">
           {/* Insurance Requirements */}
-          <div className="bg-white rounded-2xl p-8 shadow-sm" data-aos="fade-up" data-aos-delay="100">
+          <div className="bg-[#E7E7E7] rounded-2xl p-8 shadow-sm" data-aos="fade-up" data-aos-delay="100">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-12 h-12 bg-amber-500/10 rounded-xl flex items-center justify-center">
                 <ShieldCheck className="w-6 h-6 text-amber-600" />
@@ -47,7 +47,7 @@ const SafetySection = () => {
           </div>
 
           {/* Flight Crew Standards */}
-          <div className="bg-white rounded-2xl p-8 shadow-sm" data-aos="fade-up" data-aos-delay="200">
+          <div className="bg-[#E7E7E7] rounded-2xl p-8 shadow-sm" data-aos="fade-up" data-aos-delay="200">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-12 h-12 bg-amber-500/10 rounded-xl flex items-center justify-center">
                 <Users className="w-6 h-6 text-amber-600" />
@@ -94,7 +94,7 @@ const SafetySection = () => {
           </div>
 
           {/* Operational Excellence */}
-          <div className="bg-white rounded-2xl p-8 shadow-sm" data-aos="fade-up" data-aos-delay="300">
+          <div className="bg-[#E7E7E7] rounded-2xl p-8 shadow-sm" data-aos="fade-up" data-aos-delay="300">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-12 h-12 bg-amber-500/10 rounded-xl flex items-center justify-center">
                 <Award className="w-6 h-6 text-amber-600" />

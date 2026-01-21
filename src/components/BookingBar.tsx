@@ -1,5 +1,6 @@
-import { useState, useEffect } from 'react';
-import { ChevronDown } from 'lucide-react';
+import { useState } from 'react';
+import { useLocation } from 'react-router-dom';
+import { MapPin, Calendar, User } from 'lucide-react';
 
 interface BookingBarProps {
   className?: string;
@@ -7,119 +8,74 @@ interface BookingBarProps {
 
 const BookingBar = ({ className = '' }: BookingBarProps) => {
   const [tripType, setTripType] = useState<'one-way' | 'round-trip'>('one-way');
-  const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 100);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  // Hide on leadership page
+  if (location.pathname === '/leadership') {
+    return null;
+  }
 
   return (
     <div
-      className={`absolute left-0 right-0 z-[45] top-[68px] transition-all duration-500 ${className}`}
+      className={`absolute left-0 right-0 z-[45] top-[60px] ${className}`}
     >
-      <div className="max-w-7xl mx-auto px-4 md:px-8">
-        <div className={`transition-all duration-300 ${isScrolled ? 'py-2' : 'py-3'}`}>
-          <div
-            className={`rounded-xl overflow-hidden transition-all duration-500 ${
-              isScrolled
-                ? 'bg-white/5 border border-white/10'
-                : 'bg-white/10 backdrop-blur-md border border-white/20 shadow-2xl'
-            }`}
-          >
-            {/* Trip Type Toggle & Form */}
-            <div className="flex flex-col md:flex-row">
-              {/* Trip Type Toggle */}
-              <div className="flex border-b md:border-b-0 md:border-r border-white/10">
-                <button
-                  onClick={() => setTripType('one-way')}
-                  className={`flex-1 md:flex-none px-6 py-3 text-[10px] font-semibold tracking-[0.15em] uppercase transition-all ${
-                    tripType === 'one-way'
-                      ? 'bg-purple-400 text-white'
-                      : 'text-white/50 hover:text-white/80 hover:bg-white/5'
-                  }`}
-                >
-                  One Way
-                </button>
-                <button
-                  onClick={() => setTripType('round-trip')}
-                  className={`flex-1 md:flex-none px-6 py-3 text-[10px] font-semibold tracking-[0.15em] uppercase transition-all ${
-                    tripType === 'round-trip'
-                      ? 'bg-purple-400 text-white'
-                      : 'text-white/50 hover:text-white/80 hover:bg-white/5'
-                  }`}
-                >
-                  Round Trip
-                </button>
-              </div>
+      <div className="w-full bg-black/40 backdrop-blur-sm border-t border-b border-white/10">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+          <div className="flex flex-col md:flex-row md:items-center py-4 gap-4 md:gap-0">
+            {/* Trip Type Toggle */}
+            <div className="flex items-center gap-1 pr-8 border-r border-white/20">
+              <button
+                onClick={() => setTripType('one-way')}
+                className={`relative px-2 py-1 text-xs font-medium tracking-wider uppercase transition-all ${
+                  tripType === 'one-way'
+                    ? 'text-white'
+                    : 'text-white/40 hover:text-white/70'
+                }`}
+              >
+                One Way
+                {tripType === 'one-way' && (
+                  <span className="absolute bottom-0 left-2 right-2 h-[2px] bg-white" />
+                )}
+              </button>
+              <span className="text-white/30">/</span>
+              <button
+                onClick={() => setTripType('round-trip')}
+                className={`relative px-2 py-1 text-xs font-medium tracking-wider uppercase transition-all ${
+                  tripType === 'round-trip'
+                    ? 'text-white'
+                    : 'text-white/40 hover:text-white/70'
+                }`}
+              >
+                Round Trip
+                {tripType === 'round-trip' && (
+                  <span className="absolute bottom-0 left-2 right-2 h-[2px] bg-white" />
+                )}
+              </button>
+            </div>
 
-              {/* Form Fields */}
-              <div className="flex-1 grid grid-cols-2 md:grid-cols-5">
-                {/* From */}
-                <div className="border-b md:border-b-0 md:border-r border-white/10 px-4 py-2.5">
-                  <label className="block text-[8px] text-white/40 uppercase tracking-[0.2em] mb-0.5">
-                    From
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="City or Airport"
-                    className="w-full bg-transparent text-white text-xs font-medium placeholder-white/30 focus:outline-none"
-                  />
-                </div>
+            {/* From / To */}
+            <div className="flex items-center gap-2 px-8 border-r border-white/20 flex-1">
+              <MapPin className="w-4 h-4 text-white/60" />
+              <span className="text-sm text-white/80 tracking-wide">FROM / TO</span>
+            </div>
 
-                {/* To */}
-                <div className="border-b md:border-b-0 md:border-r border-white/10 px-4 py-2.5">
-                  <label className="block text-[8px] text-white/40 uppercase tracking-[0.2em] mb-0.5">
-                    To
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="City or Airport"
-                    className="w-full bg-transparent text-white text-xs font-medium placeholder-white/30 focus:outline-none"
-                  />
-                </div>
+            {/* Travel Date */}
+            <div className="flex items-center gap-2 px-8 border-r border-white/20 flex-1">
+              <Calendar className="w-4 h-4 text-white/60" />
+              <span className="text-sm text-white/80 tracking-wide">TRAVEL DATE</span>
+            </div>
 
-                {/* Travel Date */}
-                <div className="border-b md:border-b-0 md:border-r border-white/10 px-4 py-2.5">
-                  <label className="block text-[8px] text-white/40 uppercase tracking-[0.2em] mb-0.5">
-                    Date
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="Select Date"
-                    className="w-full bg-transparent text-white text-xs font-medium placeholder-white/30 focus:outline-none"
-                  />
-                </div>
+            {/* Passengers */}
+            <div className="flex items-center gap-2 px-8 flex-1">
+              <User className="w-4 h-4 text-white/60" />
+              <span className="text-sm text-white/80 tracking-wide">PASSENGERS</span>
+            </div>
 
-                {/* Passengers */}
-                <div className="border-b md:border-b-0 md:border-r border-white/10 px-4 py-2.5">
-                  <label className="block text-[8px] text-white/40 uppercase tracking-[0.2em] mb-0.5">
-                    Passengers
-                  </label>
-                  <div className="relative">
-                    <select className="w-full bg-transparent text-white text-xs font-medium appearance-none focus:outline-none cursor-pointer">
-                      <option value="" className="bg-neutral-900">Select</option>
-                      {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16].map((num) => (
-                        <option key={num} value={num} className="bg-neutral-900">
-                          {num}
-                        </option>
-                      ))}
-                    </select>
-                    <ChevronDown className="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 text-white/50 pointer-events-none" />
-                  </div>
-                </div>
-
-                {/* Request Flight Button */}
-                <div className="col-span-2 md:col-span-1 p-2 flex items-center justify-center">
-                  <button className="w-full bg-purple-400 hover:bg-purple-300 text-white font-semibold py-2.5 px-4 rounded-lg transition-all duration-300 uppercase tracking-[0.1em] text-[10px]">
-                    Request Flight
-                  </button>
-                </div>
-              </div>
+            {/* Request Flight Button */}
+            <div className="pl-8">
+              <button className="px-8 py-3 border border-white/40 hover:border-white/70 text-white font-medium tracking-wider uppercase text-xs transition-all duration-300 hover:bg-white/5">
+                Request Flight
+              </button>
             </div>
           </div>
         </div>

@@ -61,7 +61,7 @@ const DiscerningFlyerSection = () => {
             {/* Text Content */}
             <div className="max-w-xl">
               <h2
-                className={`text-3xl md:text-4xl lg:text-5xl font-light text-white uppercase tracking-[0.2em] leading-tight transition-all duration-1000 ${
+                className={`text-2xl md:text-3xl lg:text-4xl font-light text-white uppercase tracking-[0.3em] leading-tight transition-all duration-1000 ${
                   isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                 }`}
               >
@@ -90,7 +90,7 @@ const DiscerningFlyerSection = () => {
               style={{ transitionDelay: '400ms' }}
             >
               <a
-                href="/about"
+                href="/leadership"
                 className="inline-flex items-center justify-center px-12 py-4 border border-white/40 hover:border-white text-white font-medium uppercase tracking-[0.2em] text-sm transition-all duration-300 hover:bg-white/10"
               >
                 Explore

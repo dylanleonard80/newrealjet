@@ -30,10 +30,10 @@ const NotFound = () => {
               Return Home
             </Link>
             <Link
-              to="/fleet"
+              to="/safety"
               className="px-8 py-4 border border-neutral-300 text-neutral-700 rounded-full font-medium hover:border-neutral-400 transition-colors duration-300"
             >
-              View Fleet
+              View Safety
             </Link>
           </div>
         </div>

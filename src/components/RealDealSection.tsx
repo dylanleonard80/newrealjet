@@ -63,7 +63,7 @@ const RealDealSection = () => {
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
-          <h2 className="text-3xl md:text-4xl font-light text-neutral-900 tracking-[0.15em] uppercase">
+          <h2 className="text-2xl md:text-3xl font-light text-neutral-900 tracking-[0.3em] uppercase">
             The <em className="italic">Real Deal</em>
           </h2>
           <p className="mt-4 text-neutral-600">

@@ -30,7 +30,7 @@ const fleetData = [
 
 const FleetSection = () => {
   return (
-    <section id="fleet" className="bg-white py-20 lg:py-28 scroll-mt-20">
+    <section id="fleet" className="bg-[#E7E7E7] py-20 lg:py-28 scroll-mt-20">
       <div className="container mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-12" data-aos="fade-up">

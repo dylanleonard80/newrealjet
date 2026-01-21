@@ -42,8 +42,8 @@ const HeroSection = () => {
         }}
       />
 
-      {/* Mobile Booking Bar */}
-      <BookingBar className="md:hidden" />
+      {/* Booking Bar */}
+      <BookingBar />
 
       {/* Bottom Content */}
       <div className="relative z-10 mt-auto px-6 md:px-12 pb-16 md:pb-20 pt-48">
@@ -51,22 +51,22 @@ const HeroSection = () => {
           <div className="max-w-2xl">
             {/* FLY REAL Headline */}
             <h1
-              className={`text-6xl md:text-7xl lg:text-8xl font-serif font-light text-white tracking-tight uppercase transition-all duration-1000 ${
+              className={`text-4xl md:text-5xl lg:text-6xl font-light text-white tracking-[0.3em] uppercase transition-all duration-1000 ${
                 isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
               style={{ transitionDelay: '500ms' }}
             >
-              Fly <span className="text-gradient-gold italic">Real.</span>
+              Fly Real.
             </h1>
 
             {/* Description */}
             <p
-              className={`mt-6 text-lg md:text-xl text-white/80 leading-relaxed max-w-xl transition-all duration-1000 ${
+              className={`mt-8 text-base md:text-lg text-white/80 leading-relaxed max-w-xl transition-all duration-1000 ${
                 isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
               style={{ transitionDelay: '700ms' }}
             >
-              Real Jet aircraft are all designed for calm, comfort, and control, offering updated interiors, thoughtful amenities, and a smooth in-flight experience.
+              REAL Jet aircraft are all designed for calm, comfort, and control, offering updated interiors, thoughtful amenities, and a smooth in-flight experience.
             </p>
 
             {/* Explore Button */}
@@ -77,23 +77,10 @@ const HeroSection = () => {
               style={{ transitionDelay: '900ms' }}
             >
               <a
-                href="/fleet"
-                className="inline-flex items-center gap-3 px-8 py-4 border border-white/30 hover:border-white/60 text-white font-medium uppercase tracking-wider text-sm rounded-full transition-all duration-300 hover:bg-white/10"
+                href="/safety"
+                className="inline-block px-10 py-3 border border-white/40 hover:border-white/70 text-white text-sm tracking-[0.15em] uppercase transition-all duration-300 hover:bg-white/5"
               >
                 Explore
-                <svg
-                  className="w-4 h-4"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                  />
-                </svg>
               </a>
             </div>
           </div>

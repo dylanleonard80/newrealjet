@@ -24,8 +24,8 @@ const TestimonialsSection = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative py-32 md:py-48 overflow-hidden"
-      style={{ backgroundColor: 'hsl(var(--charcoal))' }}
+      className="relative py-16 md:py-24 overflow-hidden"
+      style={{ backgroundColor: '#A9A3D0' }}
     >
       {/* Dramatic background accent */}
       <div
@@ -56,10 +56,8 @@ const TestimonialsSection = () => {
           }`}
         >
           <p className="text-2xl md:text-4xl lg:text-5xl font-serif font-light text-[hsl(var(--cream))] leading-[1.3] tracking-tight">
-            Real Jet changed how I view travel. I simply tell them where I need to be, and
-            they handle{' '}
-            <span className="italic text-[hsl(var(--champagne))]">everything else.</span>{' '}
-            It's exactly what private aviation should be.
+            Thanks so much for everything! Very smooth trip home. Crew and customs were{' '}
+            <span className="italic">great!!</span>
           </p>
         </blockquote>
 
@@ -71,9 +69,9 @@ const TestimonialsSection = () => {
           style={{ transitionDelay: '200ms' }}
         >
           <div className="w-12 h-px bg-[hsl(var(--champagne))/0.4] mx-auto mb-8" />
-          <p className="text-lg font-serif text-[hsl(var(--cream))]">Sarah Jenkins</p>
+          <p className="text-lg font-serif text-[hsl(var(--cream))]">Pam V</p>
           <p className="mt-1 text-sm text-[hsl(var(--cream-muted))] tracking-wide">
-            CEO, Venture Capital
+            REAL Jet Customer
           </p>
         </div>
       </div>
