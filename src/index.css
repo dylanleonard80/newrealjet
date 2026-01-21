@@ -1,0 +1,369 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Cinematic Luxury Palette */
+    --background: 20 10% 4%;
+    --foreground: 40 30% 95%;
+
+    --card: 20 8% 8%;
+    --card-foreground: 40 30% 95%;
+
+    --popover: 20 8% 8%;
+    --popover-foreground: 40 30% 95%;
+
+    --primary: 40 30% 95%;
+    --primary-foreground: 20 10% 4%;
+
+    --secondary: 20 8% 12%;
+    --secondary-foreground: 40 30% 95%;
+
+    --muted: 20 8% 15%;
+    --muted-foreground: 40 15% 55%;
+
+    --accent: 270 50% 65%;
+    --accent-foreground: 20 10% 4%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 20 10% 18%;
+    --input: 20 10% 18%;
+    --ring: 270 50% 65%;
+
+    --radius: 0.5rem;
+
+    /* Brand Colors */
+    --champagne: 270 50% 65%;
+    --champagne-light: 270 60% 80%;
+    --champagne-dark: 270 40% 50%;
+
+    --cream: 40 30% 95%;
+    --cream-muted: 40 20% 75%;
+
+    --charcoal: 20 10% 8%;
+    --charcoal-light: 20 8% 12%;
+    --charcoal-dark: 20 12% 4%;
+
+    /* Neutral Scale */
+    --neutral-50: 40 20% 96%;
+    --neutral-100: 40 15% 90%;
+    --neutral-200: 40 10% 80%;
+    --neutral-300: 40 8% 65%;
+    --neutral-400: 40 6% 50%;
+    --neutral-500: 40 5% 40%;
+    --neutral-600: 30 8% 28%;
+    --neutral-700: 25 10% 18%;
+    --neutral-800: 22 12% 12%;
+    --neutral-900: 20 14% 8%;
+    --neutral-950: 20 16% 4%;
+
+    /* Purple accent scale */
+    --gold-50: 270 60% 97%;
+    --gold-100: 270 55% 90%;
+    --gold-200: 270 50% 80%;
+    --gold-300: 270 50% 70%;
+    --gold-400: 270 50% 65%;
+    --gold-500: 270 45% 55%;
+
+    /* Legacy support */
+    --emerald-400: 158 64% 52%;
+    --emerald-500: 160 84% 39%;
+    --amber-100: 45 60% 95%;
+    --amber-400: 43 90% 55%;
+    --amber-500: 42 90% 50%;
+    --amber-600: 40 85% 45%;
+    --indigo-500: 239 84% 67%;
+    --green-100: 142 77% 93%;
+    --green-700: 142 72% 29%;
+  }
+
+  .dark {
+    --background: 20 10% 4%;
+    --foreground: 40 30% 95%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased overflow-x-hidden;
+    background-color: hsl(var(--charcoal-dark));
+  }
+
+  /* Distinctive Typography */
+  h1, h2, h3, h4 {
+    @apply font-serif tracking-tight;
+    text-wrap: balance;
+  }
+
+  h1 {
+    @apply text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl lg:text-5xl font-light;
+    line-height: 1.1;
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl font-normal;
+    line-height: 1.2;
+  }
+
+  p {
+    @apply leading-relaxed;
+  }
+
+  /* Selection styling */
+  ::selection {
+    background-color: hsl(var(--champagne) / 0.3);
+    color: hsl(var(--cream));
+  }
+}
+
+@layer components {
+  /* Atmospheric grain overlay */
+  .grain {
+    position: relative;
+  }
+
+  .grain::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    opacity: 0.03;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* Luxury glass effect */
+  .glass-dark {
+    @apply bg-white/[0.03] backdrop-blur-2xl border border-white/[0.08];
+  }
+
+  .glass-light {
+    @apply bg-black/[0.03] backdrop-blur-2xl border border-black/[0.08];
+  }
+
+  /* Editorial divider */
+  .divider-gold {
+    @apply h-px bg-gradient-to-r from-transparent via-[hsl(var(--champagne)/0.5)] to-transparent;
+  }
+
+  /* Luxury button styles */
+  .btn-luxury {
+    @apply relative overflow-hidden px-8 py-4 font-sans font-medium tracking-wide;
+    @apply transition-all duration-500 ease-out;
+  }
+
+  .btn-luxury::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent;
+    @apply -translate-x-full transition-transform duration-700;
+  }
+
+  .btn-luxury:hover::before {
+    @apply translate-x-full;
+  }
+
+  /* Eyebrow text style */
+  .eyebrow {
+    @apply text-xs font-sans font-medium tracking-[0.3em] uppercase;
+    color: hsl(var(--champagne));
+  }
+
+  /* Body text variants */
+  .body-large {
+    @apply text-lg md:text-xl font-light leading-relaxed;
+    color: hsl(var(--cream-muted));
+  }
+
+  .body-small {
+    @apply text-sm font-normal;
+    color: hsl(var(--cream-muted));
+  }
+
+  /* Animated underline */
+  .link-underline {
+    @apply relative;
+  }
+
+  .link-underline::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-px;
+    background: hsl(var(--champagne));
+    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .link-underline:hover::after {
+    @apply w-full;
+  }
+
+  /* Scroll indicator animation */
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(8px); }
+  }
+
+  .animate-float {
+    animation: float 2s ease-in-out infinite;
+  }
+
+  /* Stagger animation delays */
+  .stagger-1 { animation-delay: 0.1s; }
+  .stagger-2 { animation-delay: 0.2s; }
+  .stagger-3 { animation-delay: 0.3s; }
+  .stagger-4 { animation-delay: 0.4s; }
+  .stagger-5 { animation-delay: 0.5s; }
+
+  /* Fade in animation */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    opacity: 0;
+  }
+
+  /* Scale reveal animation */
+  @keyframes scaleReveal {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+  }
+
+  .animate-scale-reveal {
+    animation: scaleReveal 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    opacity: 0;
+  }
+
+  /* Horizontal line grow animation */
+  @keyframes lineGrow {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+  }
+
+  .animate-line-grow {
+    animation: lineGrow 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    transform-origin: left;
+  }
+
+  /* Animated purple gradient */
+  @keyframes gradientMove {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  .animated-purple-gradient {
+    background:
+      linear-gradient(
+        135deg,
+        hsl(270 70% 78% / 0.8) 0%,
+        hsl(0 0% 100% / 0.7) 20%,
+        hsl(275 75% 80% / 0.75) 35%,
+        hsl(0 0% 100% / 0.8) 50%,
+        hsl(265 80% 75% / 0.8) 65%,
+        hsl(0 0% 100% / 0.7) 80%,
+        hsl(280 70% 78% / 0.75) 100%
+      ),
+      linear-gradient(
+        -45deg,
+        hsl(0 0% 100%) 0%,
+        hsl(270 65% 82% / 0.7) 25%,
+        hsl(0 0% 100% / 0.6) 45%,
+        hsl(275 70% 80% / 0.65) 65%,
+        hsl(0 0% 100%) 100%
+      ),
+      hsl(0 0% 98%);
+    background-size: 300% 300%, 400% 400%, 100% 100%;
+    animation: gradientMove 12s ease-in-out infinite, gradientMove 18s ease-in-out infinite reverse;
+  }
+
+  .animated-purple-gradient::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.6' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    opacity: 0.04;
+    mix-blend-mode: multiply;
+  }
+
+  .glass-section {
+    background: hsl(20 12% 6%);
+  }
+}
+
+@layer utilities {
+  /* Text gradient */
+  .text-gradient-gold {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(var(--champagne-light)), hsl(var(--champagne)), hsl(var(--champagne-dark)));
+  }
+
+  /* Custom scrollbar */
+  .scrollbar-luxury::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .scrollbar-luxury::-webkit-scrollbar-track {
+    background: hsl(var(--charcoal));
+  }
+
+  .scrollbar-luxury::-webkit-scrollbar-thumb {
+    background: hsl(var(--champagne) / 0.3);
+    border-radius: 3px;
+  }
+
+  .scrollbar-luxury::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--champagne) / 0.5);
+  }
+
+  /* Perspective utilities */
+  .perspective-distant {
+    perspective: 1200px;
+  }
+
+  .transform-style-preserve-3d {
+    transform-style: preserve-3d;
+  }
+
+  /* Mask utilities */
+  .mask-fade-b {
+    mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+  }
+
+  .mask-fade-edges {
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  }
+}
+
+/* Remove default AOS animations - we'll use custom ones */
+[data-aos] {
+  opacity: 1 !important;
+  transform: none !important;
+}
